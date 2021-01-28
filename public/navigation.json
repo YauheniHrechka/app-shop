@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "id": "01",
+            "name": "All"
+        },
+        {
+            "id": "02",
+            "name": "Basketball"
+        },
+        {
+            "id": "03",
+            "name": "Rugby"
+        },
+        {
+            "id": "04",
+            "name": "Soccer"
+        },
+        {
+            "id": "05",
+            "name": "Volleyball"
+        }
+    ]
+}

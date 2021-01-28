@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    background: rgb(230, 235, 251);
+    padding: 10px;
+    width: 90%;
+    margin: 10px auto;
+    border-radius: 15px;
+}
