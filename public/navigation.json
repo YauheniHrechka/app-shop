@@ -2,23 +2,28 @@
     "items": [
         {
             "id": "01",
-            "name": "All"
+            "name": "All",
+            "category": ""
         },
         {
             "id": "02",
-            "name": "Basketball"
+            "name": "Basketball",
+            "category": "Basketball"
         },
         {
             "id": "03",
-            "name": "Rugby"
+            "name": "Rugby",
+            "category": "Rugby"
         },
         {
             "id": "04",
-            "name": "Soccer"
+            "name": "Soccer",
+            "category": "Soccer"
         },
         {
             "id": "05",
-            "name": "Volleyball"
+            "name": "Volleyball",
+            "category": "Volleyball"
         }
     ]
 }

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
+import Content from '../Content/Content';
 
 const App = ({ setNavigation }) => {
 
@@ -20,6 +21,7 @@ const App = ({ setNavigation }) => {
     <div className="App">
       <Header />
       <Navigation />
+      <Content />
     </div>
   );
 }

@@ -1,0 +1,148 @@
+{
+    "goods": [
+        {
+            "id": "1",
+            "modelNumber": "AA0017WD6",
+            "name": "Soccer ball",
+            "brand": "Mitre",
+            "url": "https://images.tomas.by/i3/firms/49/5353/5353755/futbolnyy-myach-mitre-delta-replica-aa0017wd6-razmer-5-belyy-krasnyy-chernyy_60f90843dce12d2_300x300.jpg",
+            "category": "Soccer",
+            "price": "68.00"
+        },
+        {
+            "id": "2",
+            "modelNumber": "BGG7x-X",
+            "name": "Basketball ball",
+            "brand": "Molten",
+            "url": "https://images.tomas.by/i3/firms/49/5375/5375412/basketbolnyy-myach-molten-bgg7x-x-fiba_3847086d0576ded_300x300.jpg",
+            "category": "Basketball",
+            "price": "220.00"
+        },
+        {
+            "id": "3",
+            "modelNumber": "A0029WC5",
+            "name": "Soccer ball",
+            "brand": "Mitre",
+            "url": "https://images.tomas.by/i3/firms/49/5372/5372974/myach-dlya-futzala-mitre-futsal-impel-a0029wc5-razmer-4-belyy-zelenyy-seryy_cb14d86e8745e6a_300x300.jpg",
+            "category": "Soccer",
+            "price": "88.00"
+        },
+        {
+            "id": "4",
+            "modelNumber": "V30125",
+            "name": "Volleyball ball",
+            "brand": "Torres",
+            "url": "https://images.tomas.by/i3/firms/49/5375/5375412/myach-voleybolnyy-torres-simple-orange-v30125_a6aac3bb7baedc2_300x300.jpg",
+            "category": "Soccer",
+            "price": "33.00"
+        },
+        {
+            "id": "5",
+            "modelNumber": "BB1981WHL",
+            "name": "Soccer ball",
+            "brand": "Mitre",
+            "url": "https://images.tomas.by/i3/firms/49/5353/5353755/futbolnyy-myach-mitre-delta-replica-bb1981whl-razmer-5-belyy-siniy-krasnyy_f6d2dd7374ea97f_300x300.jpg",
+            "category": "Soccer",
+            "price": "72.00"
+        },
+        {
+            "id": "6",
+            "modelNumber": "WTF1509XB",
+            "name": "Rugby ball",
+            "brand": "Wilson",
+            "url": "https://images.tomas.by/i3/firms/49/5353/5353755/myach-dlya-amerikanskogo-futbola-wilson-tn-official-ball-wtf1509xb_d772d9ba0675cd9_300x300.jpg",
+            "category": "Rugby",
+            "price": "27.00"
+        },
+        {
+            "id": "7",
+            "modelNumber": "BB8015WNB",
+            "name": "Soccer ball",
+            "brand": "Mitre",
+            "url": "https://images.tomas.by/i3/firms/49/22/22826/myach-futbolnyy-trenirovochnyy-mitre-ultimatch-n5-art-bb8015wnb_79de8e873923f13_300x300.jpg",
+            "category": "Soccer",
+            "price": "73,80"
+        },
+        {
+            "id": "8",
+            "modelNumber": "BB32311122WA1",
+            "name": "Volleyball ball",
+            "brand": "Breeze",
+            "url": "https://images.tomas.by/i3/firms/49/5375/5375412/myach-voleybolnyy-atemi-breeze-microfiber_10c669f2ee9df4b_300x300.jpg",
+            "category": "Volleyball",
+            "price": "48.00"
+        },
+        {
+            "id": "9",
+            "modelNumber": "BB8308WA1",
+            "name": "Soccer ball",
+            "brand": "Mitre",
+            "url": "https://images.tomas.by/i3/firms/49/22/22826/myach-futzalnyy-matchevyy-mitre-fuego-futsal-n4-art-bb8308wa1_9cf1d358033c4af_300x300.jpg",
+            "category": "Soccer",
+            "price": "82.00"
+        },
+        {
+            "id": "10",
+            "modelNumber": "BB8308WA1",
+            "name": "Basketball ball",
+            "brand": "Torres",
+            "url": "https://images.tomas.by/i3/firms/49/5375/5375412/basketbolnyy-myach-torres-bm600-b10026_4f92a88a1ca66e9_300x300.jpg",
+            "category": "Basketball",
+            "price": "51.00"
+        },
+        {
+            "id": "11",
+            "modelNumber": "42097704",
+            "name": "Rugby ball",
+            "brand": "Gilbert",
+            "url": "https://images.tomas.by/i3/firms/49/5372/5372099/myach-dlya-regbi-gilbert-g-tr4000-42097704-razmer-4-belyy-chernyy-seryy_be18f11535b4017_300x300.jpg",
+            "category": "Rugby",
+            "price": "136.17"
+        },
+        {
+            "id": "12",
+            "modelNumber": "WTB9118XB0702",
+            "name": "Basketball ball",
+            "brand": "Wilson",
+            "url": "https://images.tomas.by/i3/firms/49/5375/5375412/basketbolnyy-myach-wilson-sensation-wtb9118xb0702_39237affd8430a0_300x300.jpg",
+            "category": "Basketball",
+            "price": "93.00"
+        },
+        {
+            "id": "13",
+            "modelNumber": "SC3807-102",
+            "name": "Soccer ball",
+            "brand": "Nike",
+            "url": "https://images.tomas.by/i3/firms/49/5375/5375412/futbolnyy-myach-nike-pitch-sc3807-102_bd66587adf77ef4_300x300.jpg",
+            "category": "Soccer",
+            "price": "60.00"
+        },
+        {
+            "id": "14",
+            "modelNumber": "BB500",
+            "name": "Basketball ball",
+            "brand": "Atemi",
+            "url": "https://images.tomas.by/i3/firms/49/5375/5375412/basketbolnyy-myach-atemi-bb500_eb708a306fa4871_300x300.jpg",
+            "category": "Basketball",
+            "price": "23.00"
+        },
+        {
+            "id": "15",
+            "modelNumber": "JV-700",
+            "name": "Volleyball ball",
+            "brand": "Jogel",
+            "url": "https://images.tomas.by/i3/firms/49/5280/5280069/myach-voleybolnyy-jogel-jv-700_6e42293572abe27_300x300.jpg",
+            "category": "Volleyball",
+            "price": "47.97"
+        },
+        {
+            "id": "16",
+            "modelNumber": "WTF1411XB",
+            "name": "Rugby ball",
+            "brand": "Wilson",
+            "url": "https://images.tomas.by/i3/firms/49/5353/5353755/myach-dlya-amerikanskogo-futbola-wilson-nfl-mvp-official-wtf1411xb_19dbc9072d81a48_300x300.jpg",
+            "category": "Rugby",
+            "price": "36.00"
+        }
+    ]
+}
