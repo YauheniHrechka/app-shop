@@ -92,3 +92,57 @@
         }
     }
 }
+
+@media (max-width: 575px) {
+    .goodCart {
+        display: grid;
+        grid-template-areas: 
+        "checkbox img number delete"
+        "description description total total";
+        grid-template-rows: 2fr 1fr;
+        grid-template-columns: 1fr 3fr 3fr 1fr;
+
+        .goodCart__checkbox {
+            grid-area: checkbox;
+            width: 35px;
+        }
+
+        .goodCart__img {
+            grid-area: img;
+        }
+
+        .goodCart__number {
+            grid-area: number;
+            width: 100%;
+        }
+
+        .goodCart__delete {
+            grid-area: delete;
+            text-align: right;
+        }
+
+        .goodCart__description {
+            grid-area: description;
+            width: 100%;
+            padding: 0 15px;
+        }
+
+        .goodCart__total {
+            grid-area: total;
+            width: 100%;
+            padding: 15px;
+        }
+    }
+}
+
+@media (max-width: 412px) {
+    .goodCart {
+        grid-template-areas: 
+        "checkbox delete"
+        "img number"
+        "description description"
+        "total total";
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+}
