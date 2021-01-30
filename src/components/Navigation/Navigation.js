@@ -1,15 +1,12 @@
 import React from 'react';
-import './Navigation.css';
+import './Navigation.scss';
 
 import { connect } from 'react-redux';
 
-const Navigation = ({ navigation, filterByCategory }) => {
+const Navigation = ({ navigation, filterByCategory, activeCategory }) => {
 
-    const [active, setActive] = React.useState('01');
-
-    const onClickItem = (e) => {
-        setActive(e.target.getAttribute('data-id'));
-        filterByCategory(e.target.getAttribute('data-category'));
+    const onClickItem = (category) => {
+        filterByCategory(category);
     }
 
     return (
@@ -18,10 +15,8 @@ const Navigation = ({ navigation, filterByCategory }) => {
                 {navigation.map(({ id, name, category }) =>
                     <li
                         key={id}
-                        data-id={id}
-                        data-category={category}
-                        className={`navigation-item ${active === id ? `active` : ``}`}
-                        onClick={onClickItem}
+                        className={`navigation-item ${activeCategory === category ? `active` : ``}`}
+                        onClick={() => onClickItem(category)}
                     >
                         {name}
                     </li>
@@ -33,7 +28,8 @@ const Navigation = ({ navigation, filterByCategory }) => {
 
 export default connect(
     state => ({
-        navigation: state.navigation
+        navigation: state.navigation,
+        activeCategory: state.filterGoods
     }),
     dispatch => ({
         filterByCategory: category => {

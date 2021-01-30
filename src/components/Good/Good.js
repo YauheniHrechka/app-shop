@@ -1,7 +1,16 @@
 import React from 'react';
-import './Good.css';
+import './Good.scss';
 
-const Good = ({ good: { modelNumber, name, brand, url, category, price } }) => {
+import { connect } from 'react-redux';
+
+const Good = ({ good, addGood }) => {
+
+    const { modelNumber, name, brand, url, price } = good;
+
+    const onClickGood = () => {
+        addGood(good);
+    }
+
     return (
         <div className="good">
             <div className="good__img">
@@ -13,7 +22,7 @@ const Good = ({ good: { modelNumber, name, brand, url, category, price } }) => {
                     <span>{`${price} BYN`}</span>
                 </div>
                 <div className="good__price_btn">
-                    <button>Buy</button>
+                    <button onClick={onClickGood}>Buy</button>
                 </div>
             </div>
             <div className="good__description">
@@ -23,4 +32,18 @@ const Good = ({ good: { modelNumber, name, brand, url, category, price } }) => {
     )
 }
 
-export default Good;
+export default connect(
+    state => ({}),
+    dispatch => ({
+        addGood: good => {
+            dispatch({
+                type: 'ADD_GOOD_CART',
+                payload: {
+                    good,
+                    number: 1,
+                    checkbox: true
+                }
+            })
+        }
+    })
+)(Good);

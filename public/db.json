@@ -33,7 +33,7 @@
             "name": "Volleyball ball",
             "brand": "Torres",
             "url": "https://images.tomas.by/i3/firms/49/5375/5375412/myach-voleybolnyy-torres-simple-orange-v30125_a6aac3bb7baedc2_300x300.jpg",
-            "category": "Soccer",
+            "category": "Volleyball",
             "price": "33.00"
         },
         {
@@ -61,7 +61,7 @@
             "brand": "Mitre",
             "url": "https://images.tomas.by/i3/firms/49/22/22826/myach-futbolnyy-trenirovochnyy-mitre-ultimatch-n5-art-bb8015wnb_79de8e873923f13_300x300.jpg",
             "category": "Soccer",
-            "price": "73,80"
+            "price": "73.80"
         },
         {
             "id": "8",

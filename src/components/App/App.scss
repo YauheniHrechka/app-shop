@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    background: rgb(230, 235, 251);
+    padding: 10px;
+    width: 90%;
+    min-height: 100vh;
+    margin: 0 auto;
+    border: 10px solid #007bff;
+    border-radius: 15px;
+
+    .header__wrap {
+        padding: 10px 0;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 10px #A9A9A9;
+    }
+
+    .container__wrap {
+        margin-top: 15px;
+        min-height: 100vh;
+    }
+
+    .footer__wrap {
+        padding: 10px 0;
+    }
+}

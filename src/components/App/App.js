@@ -1,11 +1,13 @@
 import React from 'react';
-import './App.css';
+import { Route } from 'react-router-dom';
+import './App.scss';
 
 import { connect } from 'react-redux';
 
+import pageHome from '../../pages/Home';
+import pageCart from '../../pages/Cart';
 import Header from '../Header/Header';
-import Navigation from '../Navigation/Navigation';
-import Content from '../Content/Content';
+import Footer from '../Footer/Footer';
 
 const App = ({ setNavigation }) => {
 
@@ -19,9 +21,16 @@ const App = ({ setNavigation }) => {
 
   return (
     <div className="App">
-      <Header />
-      <Navigation />
-      <Content />
+      <div className="header__wrap">
+        <Header />
+      </div>
+      <div className="container__wrap">
+        <Route exact path="/" component={pageHome} />
+        <Route exact path="/cart" component={pageCart} />
+      </div>
+      <div className="footer__wrap">
+        <Footer />
+      </div>
     </div>
   );
 }

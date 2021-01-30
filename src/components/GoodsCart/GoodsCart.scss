@@ -1,0 +1,56 @@
+.header__cart {
+    padding-left: 7%;
+}
+
+// ********************************
+.goodCart {
+    background: #fff;
+    display: flex;
+    margin: 5px 0;
+
+    .goodCart__img {
+        height: 150px;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            padding: 20px;
+        }
+    }
+
+    .goodCart__description {
+        width: 40%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .goodCart__number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20%;
+
+        .btn {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 0 10px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+    }
+
+    .goodCart__total {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20%;
+        font-weight: bold;
+        font-size: 22px;
+    }
+}

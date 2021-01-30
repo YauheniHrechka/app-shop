@@ -1,11 +1,11 @@
 import React from 'react';
-import './Content.css';
+import './Goods.scss';
 
 import { connect } from 'react-redux';
 
 import Good from '../Good/Good';
 
-const Content = ({ goods, setGoods }) => {
+const Goods = ({ goods, setGoods }) => {
 
     React.useEffect(() => {
 
@@ -16,7 +16,7 @@ const Content = ({ goods, setGoods }) => {
     }, []);
 
     return (
-        <div className="container">
+        <div className="container__goods">
             {goods.map(good =>
                 <Good
                     key={good.id}
@@ -38,4 +38,4 @@ export default connect(
             })
         }
     })
-)(Content);
+)(Goods);
