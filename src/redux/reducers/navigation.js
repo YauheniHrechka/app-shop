@@ -1,11 +1,14 @@
 const initialState = [];
 
 const navigation = (state = initialState, action) => {
-    if (action.type === 'SET_NAVIGATION') {
-        return action.payload;
-    }
+    switch (action.type) {
+        case 'SET_NAVIGATION':
 
-    return state;
+            return action.payload;
+
+        default:
+            return state;
+    }
 }
 
 export default navigation;

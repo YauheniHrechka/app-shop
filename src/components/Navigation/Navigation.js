@@ -1,12 +1,21 @@
 import React from 'react';
 import './Navigation.scss';
 
-import { connect } from 'react-redux';
+import { filterByCategory } from '../../redux/actions/filterGoods';
 
-const Navigation = ({ navigation, filterByCategory, activeCategory }) => {
+import { useSelector } from 'react-redux';
+
+const Navigation = ({ dispatch }) => {
+
+    const { activeCategory, navigation } = useSelector(({ navigation, filterGoods }) => {
+        return {
+            activeCategory: filterGoods,
+            navigation
+        }
+    });
 
     const onClickItem = (category) => {
-        filterByCategory(category);
+        dispatch(filterByCategory(category));
     }
 
     return (
@@ -26,17 +35,4 @@ const Navigation = ({ navigation, filterByCategory, activeCategory }) => {
     )
 }
 
-export default connect(
-    state => ({
-        navigation: state.navigation,
-        activeCategory: state.filterGoods
-    }),
-    dispatch => ({
-        filterByCategory: category => {
-            dispatch({
-                type: 'FILTER_BY_CATEGORY',
-                payload: category
-            })
-        }
-    })
-)(Navigation);
+export default Navigation;

@@ -1,55 +1,109 @@
-const initialState = [];
+const initialState = {
+    goods: {},
+    totalCount: 0,
+    totalPrice: 0
+};
+
+const calcTotalGood = (obj) => {
+    Object.keys(obj).forEach(id => {
+        let currentObj = obj[id];
+        currentObj.totalCountGood = currentObj.goods.length;
+        currentObj.totalPriceGood = (currentObj.goods.length * Number(currentObj.goods[0].good.price)).toFixed(2);
+    })
+}
+
+const calcTotal = (obj, value) => {
+    return Object.keys(obj).reduce((total, item) => {
+        return total + (obj[item].checkbox ? Number(obj[item][value]) : 0);
+    }, 0)
+}
 
 const goodsCart = (state = initialState, action) => {
 
-    if (action.type === 'CLICK_CHECKBOX') {
+    let newGoods;
 
-        let newState = state.slice(0);
-        let findGood = newState.find(good => good.good.id === action.payload.good.id);
+    switch (action.type) {
+        case 'CLICK_CHECKBOX':
 
-        if (findGood) {
-            findGood.checkbox = action.payload.checkbox;
-            return newState;
-        }
-        return state;
+            newGoods = {
+                ...state.goods,
+                [action.payload.good.id]: {
+                    ...state.goods[action.payload.good.id],
+                    checkbox: action.payload.checkbox
+                }
+            }
 
-    } else if (action.type === 'ADD_GOOD_CART') {
+            return {
+                ...state,
+                goods: newGoods,
+                totalCount: calcTotal(newGoods, 'totalCountGood'),
+                totalPrice: calcTotal(newGoods, 'totalPriceGood').toFixed(2)
+            }
 
-        let newState = state.slice(0);
-        let findGood = newState.find(good => good.good.id === action.payload.good.id);
+        case 'ADD_GOOD_CART':
 
-        if (findGood) {
-            findGood.number++;
-            return newState;
-        }
+            newGoods = {
+                ...state.goods,
+                [action.payload.good.id]: !state.goods[action.payload.good.id]
+                    ? {
+                        goods: [action.payload],
+                        totalCountGood: 1,
+                        totalPriceGood: Number(action.payload.good.price),
+                        checkbox: true
+                    }
+                    : {
+                        ...state.goods[action.payload.good.id],
+                        goods: [...state.goods[action.payload.good.id].goods, action.payload]
+                    }
+            }
 
-        return [
-            ...state,
-            action.payload
-        ]
+            calcTotalGood(newGoods);
 
-    } else if (action.type === 'MINUS_GOOD_CART') {
+            return {
+                ...state,
+                goods: newGoods,
+                totalCount: calcTotal(newGoods, 'totalCountGood'),
+                totalPrice: calcTotal(newGoods, 'totalPriceGood').toFixed(2)
+            }
 
-        let newState = state.slice(0);
-        let findGood = newState.find(good => good.good.id === action.payload.good.id);
+        case 'MINUS_GOOD_CART':
 
-        if (findGood && findGood.number > 1) {
-            findGood.number--;
-        }
-        return newState;
+            newGoods = {
+                ...state.goods,
+                [action.payload.good.id]: {
+                    ...state.goods[action.payload.good.id],
+                    goods: state.goods[action.payload.good.id].goods.slice(0, -1)
+                }
+            }
 
-    } else if (action.type === 'DELETE_GOOD_CART') {
+            calcTotalGood(newGoods);
 
-        let newState = state.slice(0);
-        let findGood = newState.find(good => good.good.id === action.payload.id);
+            return {
+                ...state,
+                goods: newGoods,
+                totalCount: calcTotal(newGoods, 'totalCountGood'),
+                totalPrice: calcTotal(newGoods, 'totalPriceGood').toFixed(2)
+            }
 
-        if (findGood) {
-            newState.splice(newState.indexOf(findGood), 1);
-        }
-        return newState;
+        case 'DELETE_GOOD_CART':
+
+            newGoods = {
+                ...state.goods
+            }
+
+            delete newGoods[action.payload.id];
+            calcTotalGood(newGoods);
+
+            return {
+                ...state,
+                goods: newGoods,
+                totalCount: calcTotal(newGoods, 'totalCountGood'),
+                totalPrice: calcTotal(newGoods, 'totalPriceGood').toFixed(2)
+            }
+
+        default:
+            return state;
     }
-
-    return state
 }
 
 export default goodsCart;

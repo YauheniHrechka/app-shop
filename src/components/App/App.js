@@ -2,20 +2,29 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import './App.scss';
 
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { setGoods } from '../../redux/actions/goods';
+import { setNavigation } from '../../redux/actions/navigation';
 
 import pageHome from '../../pages/Home';
 import pageCart from '../../pages/Cart';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-const App = ({ setNavigation }) => {
+const App = () => {
+
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
 
     fetch('http://localhost:3000/navigation.json')
       .then(response => response.json())
-      .then(response => setNavigation(response.items));
+      .then(response => dispatch(setNavigation(response.items)));
+
+    fetch('http://localhost:3000/db.json')
+      .then(response => response.json())
+      .then(response => dispatch(setGoods(response.goods)))
 
   }, []);
 
@@ -35,14 +44,4 @@ const App = ({ setNavigation }) => {
   );
 }
 
-export default connect(
-  state => ({}),
-  dispatch => ({
-    setNavigation: items => (
-      dispatch({
-        type: 'SET_NAVIGATION',
-        payload: items
-      })
-    )
-  })
-)(App);
+export default App;

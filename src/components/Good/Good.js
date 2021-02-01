@@ -1,14 +1,19 @@
 import React from 'react';
 import './Good.scss';
 
-import { connect } from 'react-redux';
+import { addGoodCart } from '../../redux/actions/goodsCart';
+import { useSelector } from 'react-redux';
 
-const Good = ({ good, addGood }) => {
+const Good = ({ good, dispatch }) => {
 
-    const { modelNumber, name, brand, url, price } = good;
+    const { id, modelNumber, name, brand, url, price } = good;
+
+    const totalCountGood = useSelector(({ goodsCart: { goods } }) => {
+        return goods.hasOwnProperty(id) && goods[id].checkbox ? goods[id].totalCountGood : 0
+    });
 
     const onClickGood = () => {
-        addGood(good);
+        dispatch(addGoodCart(good));
     }
 
     return (
@@ -22,7 +27,7 @@ const Good = ({ good, addGood }) => {
                     <span>{`${price} BYN`}</span>
                 </div>
                 <div className="good__price_btn">
-                    <button onClick={onClickGood}>Buy</button>
+                    <button onClick={onClickGood}>{`+ add ${totalCountGood > 0 ? totalCountGood : ``}`}</button>
                 </div>
             </div>
             <div className="good__description">
@@ -32,18 +37,4 @@ const Good = ({ good, addGood }) => {
     )
 }
 
-export default connect(
-    state => ({}),
-    dispatch => ({
-        addGood: good => {
-            dispatch({
-                type: 'ADD_GOOD_CART',
-                payload: {
-                    good,
-                    number: 1,
-                    checkbox: true
-                }
-            })
-        }
-    })
-)(Good);
+export default Good;

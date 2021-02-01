@@ -1,27 +1,27 @@
 import React from 'react';
 import './GoodCart.scss';
 
-import { connect } from 'react-redux';
+import { clickCheckbox, addGoodCart, minusGoodCart, deleteGoodCart } from '../../redux/actions/goodsCart';
 
-const GoodCart = ({ good, number, checkbox, clickCheckbox, addGood, minusGood, deleteGood }) => {
+const GoodCart = ({ good, totalCount, totalPrice, checkbox, dispatch }) => {
 
     const { modelNumber, name, brand, url, price } = good;
 
     const onClickCheckbox = (e) => {
-        clickCheckbox(good, e.target.checked);
+        dispatch(clickCheckbox(good, e.target.checked));
     }
 
     const onClickBtnPlus = () => {
-        addGood(good);
+        dispatch(addGoodCart(good));
     }
 
     const onClickBtnMinus = () => {
-        if (number === 1) return;
-        minusGood(good);
+        if (totalCount === 1) return;
+        dispatch(minusGoodCart(good));
     }
 
     const onClickDelete = () => {
-        deleteGood(good);
+        dispatch(deleteGoodCart(good));
     }
 
     return (
@@ -38,11 +38,11 @@ const GoodCart = ({ good, number, checkbox, clickCheckbox, addGood, minusGood, d
             </div>
             <div className="goodCart__number">
                 <button className="btn btn-minus" onClick={onClickBtnMinus}>-</button>
-                <span>{number}</span>
+                <span>{totalCount}</span>
                 <button className="btn btn-plus" onClick={onClickBtnPlus}>+</button>
             </div>
             <div className="goodCart__total">
-                <span>{`${(number * price).toFixed(2)} BYN`}</span>
+                <span>{`${totalPrice} BYN`}</span>
             </div>
             <div className="goodCart__delete">
                 <button className="btn" onClick={onClickDelete}>X</button>
@@ -51,41 +51,4 @@ const GoodCart = ({ good, number, checkbox, clickCheckbox, addGood, minusGood, d
     )
 }
 
-export default connect(
-    state => ({}),
-    dispatch => ({
-        clickCheckbox: (good, checkbox) => (
-            dispatch({
-                type: 'CLICK_CHECKBOX',
-                payload: {
-                    good,
-                    checkbox
-                }
-            })
-        ),
-        addGood: good => {
-            dispatch({
-                type: 'ADD_GOOD_CART',
-                payload: {
-                    good,
-                    number: 1
-                }
-            })
-        },
-        minusGood: good => {
-            dispatch({
-                type: 'MINUS_GOOD_CART',
-                payload: {
-                    good,
-                    number: 1
-                }
-            })
-        },
-        deleteGood: good => (
-            dispatch({
-                type: 'DELETE_GOOD_CART',
-                payload: good
-            })
-        )
-    })
-)(GoodCart);
+export default GoodCart;

@@ -1,11 +1,14 @@
 const initialState = '';
 
 const filterGoods = (state = initialState, action) => {
-    if (action.type === 'FILTER_BY_CATEGORY') {
-        return action.payload;
-    }
+    switch (action.type) {
+        case 'FILTER_BY_CATEGORY':
 
-    return state;
+            return action.payload;
+
+        default:
+            return state;
+    }
 }
 
 export default filterGoods;

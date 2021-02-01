@@ -4,9 +4,12 @@ import imgBall from '../../ball.png';
 import { Link } from 'react-router-dom';
 import './Header.scss';
 
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-const Header = ({ goodsCart }) => {
+const Header = () => {
+
+    const { totalCount } = useSelector(({ goodsCart }) => goodsCart);
+
     return (
         <header>
             <Link to="/">
@@ -18,16 +21,11 @@ const Header = ({ goodsCart }) => {
             <Link to="/cart">
                 <div className="cart">
                     <img src={imgCart} alt="cart" />
-                    {goodsCart.length > 0 && <span className="quantity">{goodsCart.length}</span>}
+                    {totalCount > 0 && <span className="quantity">{totalCount}</span>}
                 </div>
             </Link>
         </header>
     )
 }
 
-export default connect(
-    state => ({
-        goodsCart: state.goodsCart
-    }),
-    dispatch => ({})
-)(Header);
+export default Header;
