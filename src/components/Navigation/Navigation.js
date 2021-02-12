@@ -4,8 +4,11 @@ import './Navigation.scss';
 import { filterByCategory } from '../../redux/actions/filterGoods';
 
 import { useSelector } from 'react-redux';
+import { Context } from '../../context/context';
 
-const Navigation = ({ dispatch }) => {
+const Navigation = () => {
+
+    const dispatch = React.useContext(Context);
 
     const { activeCategory, navigation } = useSelector(({ navigation, filterGoods }) => {
         return {

@@ -2,9 +2,11 @@ import React from 'react';
 import './GoodCart.scss';
 
 import { clickCheckbox, addGoodCart, minusGoodCart, deleteGoodCart } from '../../redux/actions/goodsCart';
+import { Context } from '../../context/context';
 
-const GoodCart = ({ good, totalCount, totalPrice, checkbox, dispatch }) => {
+const GoodCart = ({ good, totalCount, totalPrice, checkbox }) => {
 
+    const dispatch = React.useContext(Context);
     const { modelNumber, name, brand, url, price } = good;
 
     const onClickCheckbox = (e) => {

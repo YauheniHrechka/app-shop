@@ -1,27 +1,21 @@
 import React from 'react';
 import './GoodsCart.scss';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import GoodCart from '../GoodCart/GoodCart';
 
 const GoodsCart = () => {
 
-    const dispatch = useDispatch();
+    const { goodsCart, totalPrice } = useSelector(({ goodsCart }) => ({
+        goodsCart: goodsCart.goods,
+        totalPrice: goodsCart.totalPrice
+    }));
 
-    const { goodsCart, totalPrice } = useSelector(({ goodsCart }) => {
-        return {
-            goodsCart: goodsCart.goods,
-            totalPrice: goodsCart.totalPrice
-        }
-    });
-
-    const goods = Object.keys(goodsCart).map(id => {
-        return {
-            ...goodsCart[id],
-            good: goodsCart[id].goods[0].good
-        }
-    });
+    const goods = Object.keys(goodsCart).map(id => ({
+        ...goodsCart[id],
+        good: goodsCart[id].goods[0].good
+    }));
 
     return (
         <div className="container__cart">
@@ -36,7 +30,6 @@ const GoodsCart = () => {
                         totalCount={totalCountGood}
                         totalPrice={totalPriceGood}
                         checkbox={checkbox}
-                        dispatch={dispatch}
                     />
                 )}
             </div>

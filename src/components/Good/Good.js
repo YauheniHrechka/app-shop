@@ -3,9 +3,11 @@ import './Good.scss';
 
 import { addGoodCart } from '../../redux/actions/goodsCart';
 import { useSelector } from 'react-redux';
+import { Context } from '../../context/context';
 
-const Good = ({ good, dispatch }) => {
+const Good = ({ good }) => {
 
+    const dispatch = React.useContext(Context);
     const { id, modelNumber, name, brand, url, price } = good;
 
     const totalCountGood = useSelector(({ goodsCart: { goods } }) => {

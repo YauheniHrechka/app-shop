@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import Good from '../Good/Good';
 
-const Goods = ({ dispatch }) => {
+const Goods = () => {
 
     const goods = useSelector(({ goods, filterGoods }) => {
         return goods.filter(good => good.category.includes(filterGoods))
@@ -17,7 +17,6 @@ const Goods = ({ dispatch }) => {
                 <Good
                     key={good.id}
                     good={good}
-                    dispatch={dispatch}
                 />)}
         </div>
     )
