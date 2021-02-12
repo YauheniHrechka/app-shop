@@ -2,6 +2,8 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import './App.scss';
 
+import axios from 'axios';
+
 import { useDispatch } from 'react-redux';
 
 import { setGoods } from '../../redux/actions/goods';
@@ -18,14 +20,11 @@ const App = () => {
 
   React.useEffect(() => {
 
-    fetch('http://localhost:3000/navigation.json')
-      .then(response => response.json())
-      .then(response => dispatch(setNavigation(response.items)));
+    axios.get('/navigation')
+      .then(res => dispatch(setNavigation(res.data)));
 
-    fetch('http://localhost:3000/db.json')
-      .then(response => response.json())
-      .then(response => dispatch(setGoods(response.goods)))
-
+    axios.get('/goods')
+      .then(res => dispatch(setGoods(res.data)));
   }, []);
 
   return (
