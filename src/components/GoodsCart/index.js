@@ -3,7 +3,7 @@ import './GoodsCart.scss';
 
 import { useSelector } from 'react-redux';
 
-import GoodCart from '../GoodCart/GoodCart';
+import { GoodCart } from '../';
 
 const GoodsCart = () => {
 

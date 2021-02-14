@@ -3,7 +3,7 @@ import './Goods.scss';
 
 import { useSelector } from 'react-redux';
 
-import Good from '../Good/Good';
+import { Good } from '../';
 
 const Goods = () => {
 

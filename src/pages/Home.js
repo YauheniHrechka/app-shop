@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Navigation from '../components/Navigation/Navigation';
-import Goods from '../components/Goods/Goods';
+import Navigation from '../components/Navigation';
+import Goods from '../components/Goods';
 
 const Home = () => {
 

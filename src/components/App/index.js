@@ -12,8 +12,7 @@ import { setNavigation } from '../../redux/actions/navigation';
 
 import pageHome from '../../pages/Home';
 import pageCart from '../../pages/Cart';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import { Header, Footer } from '../';
 
 const App = () => {
 
