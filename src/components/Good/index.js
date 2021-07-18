@@ -8,15 +8,13 @@ import { Context } from '../../context/context';
 const Good = ({ good }) => {
 
     const dispatch = React.useContext(Context);
-    const { id, modelNumber, name, brand, url, price } = good;
+    const { _id, modelNumber, name, brand, url, price } = good;
 
     const totalCountGood = useSelector(({ goodsCart: { goods } }) => {
-        return goods.hasOwnProperty(id) && goods[id].checkbox ? goods[id].totalCountGood : 0
+        return goods.hasOwnProperty(_id) && goods[_id].checkbox ? goods[_id].totalCountGood : 0
     });
 
-    const onClickGood = () => {
-        dispatch(addGoodCart(good));
-    }
+    const onClickGood = () => dispatch(addGoodCart(good));
 
     return (
         <div className="good">

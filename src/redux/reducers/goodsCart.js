@@ -27,8 +27,8 @@ const goodsCart = (state = initialState, action) => {
 
             newGoods = {
                 ...state.goods,
-                [action.payload.good.id]: {
-                    ...state.goods[action.payload.good.id],
+                [action.payload.good._id]: {
+                    ...state.goods[action.payload.good._id],
                     checkbox: action.payload.checkbox
                 }
             }
@@ -44,7 +44,7 @@ const goodsCart = (state = initialState, action) => {
 
             newGoods = {
                 ...state.goods,
-                [action.payload.good.id]: !state.goods[action.payload.good.id]
+                [action.payload.good._id]: !state.goods[action.payload.good._id]
                     ? {
                         goods: [action.payload],
                         totalCountGood: 1,
@@ -52,8 +52,8 @@ const goodsCart = (state = initialState, action) => {
                         checkbox: true
                     }
                     : {
-                        ...state.goods[action.payload.good.id],
-                        goods: [...state.goods[action.payload.good.id].goods, action.payload]
+                        ...state.goods[action.payload.good._id],
+                        goods: [...state.goods[action.payload.good._id].goods, action.payload]
                     }
             }
 
@@ -70,9 +70,9 @@ const goodsCart = (state = initialState, action) => {
 
             newGoods = {
                 ...state.goods,
-                [action.payload.good.id]: {
-                    ...state.goods[action.payload.good.id],
-                    goods: state.goods[action.payload.good.id].goods.slice(0, -1)
+                [action.payload.good._id]: {
+                    ...state.goods[action.payload.good._id],
+                    goods: state.goods[action.payload.good._id].goods.slice(0, -1)
                 }
             }
 
@@ -91,7 +91,7 @@ const goodsCart = (state = initialState, action) => {
                 ...state.goods
             }
 
-            delete newGoods[action.payload.id];
+            delete newGoods[action.payload._id];
             calcTotalGood(newGoods);
 
             return {

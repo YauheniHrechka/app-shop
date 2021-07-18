@@ -8,14 +8,14 @@ import { Good } from '../';
 const Goods = () => {
 
     const goods = useSelector(({ goods, filterGoods }) => {
-        return goods.filter(good => good.category.includes(filterGoods))
+        return goods.filter(good => good.categoryId.includes(filterGoods))
     });
 
     return (
         <div className="container__goods">
-            {goods.map(good =>
+            {goods && goods.map(good =>
                 <Good
-                    key={good.id}
+                    key={good._id}
                     good={good}
                 />)}
         </div>

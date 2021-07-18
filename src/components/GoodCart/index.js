@@ -9,22 +9,16 @@ const GoodCart = ({ good, totalCount, totalPrice, checkbox }) => {
     const dispatch = React.useContext(Context);
     const { modelNumber, name, brand, url, price } = good;
 
-    const onClickCheckbox = (e) => {
-        dispatch(clickCheckbox(good, e.target.checked));
-    }
+    const onClickCheckbox = (e) => dispatch(clickCheckbox(good, e.target.checked));
 
-    const onClickBtnPlus = () => {
-        dispatch(addGoodCart(good));
-    }
+    const onClickBtnPlus = () => dispatch(addGoodCart(good));
 
     const onClickBtnMinus = () => {
         if (totalCount === 1) return;
         dispatch(minusGoodCart(good));
     }
 
-    const onClickDelete = () => {
-        dispatch(deleteGoodCart(good));
-    }
+    const onClickDelete = () => dispatch(deleteGoodCart(good));
 
     return (
         <div className="goodCart">

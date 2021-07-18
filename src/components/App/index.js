@@ -2,16 +2,13 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import './App.scss';
 
-import axios from 'axios';
-
 import { useDispatch } from 'react-redux';
 import { Context } from '../../context/context';
 
-import { setGoods } from '../../redux/actions/goods';
-import { setNavigation } from '../../redux/actions/navigation';
+import { fetchGoods } from '../../redux/actions/goods';
+import { fetchNavigation } from '../../redux/actions/navigation';
 
-import pageHome from '../../pages/Home';
-import pageCart from '../../pages/Cart';
+import { pageHome, pageCart } from '../../pages';
 import { Header, Footer } from '../';
 
 const App = () => {
@@ -20,12 +17,10 @@ const App = () => {
 
   React.useEffect(() => {
 
-    axios.get('/navigation')
-      .then(res => dispatch(setNavigation(res.data)));
+    dispatch(fetchNavigation());
+    dispatch(fetchGoods());
 
-    axios.get('/goods')
-      .then(res => dispatch(setGoods(res.data)));
-  }, []);
+  }, [dispatch]);
 
   return (
     <Context.Provider value={dispatch}>

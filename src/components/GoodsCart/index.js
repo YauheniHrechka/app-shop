@@ -12,9 +12,9 @@ const GoodsCart = () => {
         totalPrice: goodsCart.totalPrice
     }));
 
-    const goods = Object.keys(goodsCart).map(id => ({
-        ...goodsCart[id],
-        good: goodsCart[id].goods[0].good
+    const goods = Object.keys(goodsCart).map(_id => ({
+        ...goodsCart[_id],
+        good: goodsCart[_id].goods[0].good
     }));
 
     return (
@@ -23,9 +23,9 @@ const GoodsCart = () => {
                 <h1>{`Your order : ${totalPrice} BYN`}</h1>
             </div>
             <div className="container__goodsCart">
-                {goods.map(({ good, totalCountGood, totalPriceGood, checkbox }) =>
+                {goods && goods.map(({ good, totalCountGood, totalPriceGood, checkbox }) =>
                     <GoodCart
-                        key={good.id}
+                        key={good._id}
                         good={good}
                         totalCount={totalCountGood}
                         totalPrice={totalPriceGood}

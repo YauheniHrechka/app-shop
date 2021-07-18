@@ -1,5 +1,5 @@
 
-export const filterByCategory = (category) => ({
+export const filterByCategory = (categoryId) => ({
     type: 'FILTER_BY_CATEGORY',
-    payload: category
+    payload: categoryId
 })

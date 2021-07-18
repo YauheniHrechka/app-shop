@@ -17,18 +17,16 @@ const Navigation = () => {
         }
     });
 
-    const onClickItem = (category) => {
-        dispatch(filterByCategory(category));
-    }
+    const onClickItem = (categoryId) => dispatch(filterByCategory(categoryId));
 
     return (
         <nav className="navigation">
             <ul>
-                {navigation.map(({ id, name, category }) =>
+                {navigation && navigation.map(({ _id, name }) =>
                     <li
-                        key={id}
-                        className={`navigation-item ${activeCategory === category ? `active` : ``}`}
-                        onClick={() => onClickItem(category)}
+                        key={_id}
+                        className={`navigation-item ${activeCategory === _id ? `active` : ``}`}
+                        onClick={() => onClickItem(name === "All" ? "" : _id)}
                     >
                         {name}
                     </li>

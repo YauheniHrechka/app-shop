@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Navigation from '../components/Navigation';
-import Goods from '../components/Goods';
+import { Navigation, Goods } from '../components';
 
 const Home = () => {
 
