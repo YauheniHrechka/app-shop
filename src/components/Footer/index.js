@@ -1,11 +1,14 @@
 import React from 'react';
-import './Footer.scss';
+// import './Footer.scss';
+
+import { Layout } from 'antd';
+const { Footer: AntFooter } = Layout;
 
 const Footer = () => {
     return (
-        <footer>
+        <AntFooter>
             <h1>Your footer</h1>
-        </footer>
+        </AntFooter>
     )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import './App.scss';
+// import { Route } from 'react-router-dom';
+// import './App.scss';
 
 import { useDispatch } from 'react-redux';
 import { Context } from '../../context/context';
@@ -8,8 +8,9 @@ import { Context } from '../../context/context';
 import { fetchGoods } from '../../redux/actions/goods';
 import { fetchNavigation } from '../../redux/actions/navigation';
 
-import { pageHome, pageCart, pageLogin, pageRegistration } from '../../pages';
-import { Header, Footer } from '../';
+// import { pageHome, pageCart, pageLogin, pageRegistration } from '../../pages';
+import { Header, Content, Footer } from '../';
+import { Layout } from 'antd';
 
 const App = () => {
 
@@ -24,7 +25,12 @@ const App = () => {
 
   return (
     <Context.Provider value={dispatch}>
-      <div className="App">
+      <Layout>
+        <Header />
+        <Content />
+        <Footer />
+      </Layout>
+      {/* <div className="App">
         <div className="header__wrap">
           <Header />
         </div>
@@ -37,7 +43,7 @@ const App = () => {
         <div className="footer__wrap">
           <Footer />
         </div>
-      </div>
+      </div> */}
     </Context.Provider>
   );
 }

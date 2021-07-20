@@ -1,56 +1,94 @@
 header {
-    padding: 0 7%;
+    position: fixed;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    
-    a {
-        text-decoration: none;
+
+    .logo {
+        float: left;
+        width: 120px;
+        height: 31px;
+        margin: 16px 24px 16px 0;
+        background: rgba(255, 255, 255, 0.3);
     }
 
-    .header {
+    ul {
+        .ant-menu-item-selected {
+            color: #87d068 !important;
+            background: #001529 !important;
+        }
+
+        .ant-menu-item:hover {
+            color: #87d068 !important;
+            background: #001529 !important;
+        }
+    }
+
+    .cart,
+    .login {
+        width: 64px;
+        height: 100%;
+        float: right;
         display: flex;
         align-items: center;
-        color: #007bff;
-
-        h2 {
-            padding-left: 15px;
-        }
-    }
-    
-    .menu {
-        display: flex;
-    
-        .cart {
-            // width: 50px;
-            height: 50px;
-            position: relative;
-
-            img {
-                max-height: 100%;
-            }
-
-            .quantity {
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 25px;
-                height: 25px;
-                text-align: center;
-                background: #28a745;
-                color: #fff;
-                border-radius: 50%;
-                font-weight: bold; 
-            }
-        }
-
-        .login,
-        .registration {
-            // width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 15px;
+        
+        .ant-badge {        
+            font-size: 42px;
+            color: #87d068;
         }
     }
 }
+// header {
+//     padding: 0 7%;
+//     display: flex;
+//     justify-content: space-between;
+    
+//     a {
+//         text-decoration: none;
+//     }
+
+//     .header {
+//         display: flex;
+//         align-items: center;
+//         color: #007bff;
+
+//         h2 {
+//             padding-left: 15px;
+//         }
+//     }
+    
+//     .menu {
+//         display: flex;
+    
+//         .cart {
+//             height: 50px;
+//             position: relative;
+
+//             img {
+//                 max-height: 100%;
+//             }
+
+//             .quantity {
+//                 position: absolute;
+//                 top: 0;
+//                 right: 0;
+//                 width: 25px;
+//                 height: 25px;
+//                 text-align: center;
+//                 background: #28a745;
+//                 color: #fff;
+//                 border-radius: 50%;
+//                 font-weight: bold; 
+//             }
+//         }
+
+//         .login,
+//         .registration {
+//             height: 50px;
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             padding: 0 15px;
+//         }
+//     }
+// }
