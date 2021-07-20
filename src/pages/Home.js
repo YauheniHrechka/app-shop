@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { Navigation, Goods } from '../components';
 
-const Home = () => {
+const PageHome = () => {
 
     return (
         <>
@@ -12,4 +11,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default PageHome;

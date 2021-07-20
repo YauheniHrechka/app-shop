@@ -21,7 +21,7 @@ header {
         display: flex;
     
         .cart {
-            width: 50px;
+            // width: 50px;
             height: 50px;
             position: relative;
 
@@ -43,12 +43,14 @@ header {
             }
         }
 
-        .auth {
-            width: 50px;
+        .login,
+        .registration {
+            // width: 50px;
             height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 0 15px;
         }
     }
 }

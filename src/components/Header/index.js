@@ -25,9 +25,14 @@ const Header = () => {
                         {totalCount > 0 && <span className="quantity">{totalCount}</span>}
                     </div>
                 </Link>
-                <Link to="/auth">
-                    <div className="auth">
-                        <span>auth</span>
+                <Link to="/login">
+                    <div className="login">
+                        <span>login</span>
+                    </div>
+                </Link>
+                <Link to="/registration">
+                    <div className="registration">
+                        <span>registration</span>
                     </div>
                 </Link>
             </div>

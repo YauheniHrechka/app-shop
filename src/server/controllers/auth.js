@@ -5,7 +5,7 @@ const keys = require('../config/keys');
 
 module.exports.login = async (req, res) => {
     const { email, password } = req.body;
-
+    console.log(req.body);
     try {
         const candidate = await User.findOne({ email });
 
