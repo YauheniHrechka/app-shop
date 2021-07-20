@@ -18,17 +18,19 @@ const Header = () => {
                     <h2>Ball shop</h2>
                 </div>
             </Link>
-            <Link to="/cart">
-                <div className="cart">
-                    <img src={imgCart} alt="cart" />
-                    {totalCount > 0 && <span className="quantity">{totalCount}</span>}
-                </div>
-            </Link>
-            <Link to="/auth">
-                <div className="auth">
-                    <span>auth</span>
-                </div>
-            </Link>
+            <div className="menu">
+                <Link to="/cart">
+                    <div className="cart">
+                        <img src={imgCart} alt="cart" />
+                        {totalCount > 0 && <span className="quantity">{totalCount}</span>}
+                    </div>
+                </Link>
+                <Link to="/auth">
+                    <div className="auth">
+                        <span>auth</span>
+                    </div>
+                </Link>
+            </div>
         </header>
     )
 }
