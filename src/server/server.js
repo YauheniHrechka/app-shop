@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+const routerAuth = require('./routers/auth');
 const routerCategories = require('./routers/category');
 const routerGoods = require('./routers/good');
 const routerCart = require('./routers/cart');
@@ -11,6 +12,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 
+app.use('/api/auth', routerAuth);
 app.use('/api/categories', routerCategories);
 app.use('/api/goods', routerGoods);
 app.use('/api/cart', routerCart);

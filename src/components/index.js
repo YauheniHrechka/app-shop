@@ -1,6 +1,8 @@
 export { default as App } from './App';
 export { default as Header } from './Header';
 export { default as Navigation } from './Navigation';
+export { default as Login } from './Login';
+export { default as Registration } from './Registration';
 export { default as Goods } from './Goods';
 export { default as Good } from './Good';
 export { default as GoodsCart } from './GoodsCart';

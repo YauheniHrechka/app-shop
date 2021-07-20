@@ -8,7 +8,7 @@ import { Context } from '../../context/context';
 import { fetchGoods } from '../../redux/actions/goods';
 import { fetchNavigation } from '../../redux/actions/navigation';
 
-import { pageHome, pageCart } from '../../pages';
+import { pageHome, pageCart, pageAuth } from '../../pages';
 import { Header, Footer } from '../';
 
 const App = () => {
@@ -31,6 +31,7 @@ const App = () => {
         <div className="container__wrap">
           <Route exact path="/" component={pageHome} />
           <Route exact path="/cart" component={pageCart} />
+          <Route exact path="/auth" component={pageAuth} />
         </div>
         <div className="footer__wrap">
           <Footer />
