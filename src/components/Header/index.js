@@ -24,13 +24,12 @@ const Header = () => {
             <div>
                 <Link to="/login">
                     <div className="login">
-                        {/* <span>login</span> */}
-                        <Avatar style={{ backgroundColor: '#87d068' }} size={48} icon={<UserOutlined />} />
+                        <Avatar style={{ backgroundColor: '#d580ff' }} size={48} icon={<UserOutlined />} />
                     </div>
                 </Link>
                 <Link to="/cart">
                     <div className="cart">
-                        <Badge size="small" count={totalCount}>
+                        <Badge size="small" count={totalCount} style={{ backgroundColor: '#52c41a' }}>
                             <ShoppingCartOutlined />
                         </Badge>
                         {/* <span>cart</span> */}

@@ -13,11 +13,7 @@ const Goods = () => {
 
     return (
         <div className="container__goods">
-            {goods && goods.map(good =>
-                <Good
-                    key={good._id}
-                    good={good}
-                />)}
+            {goods && goods.map(good => <Good key={good._id} good={good} {...good} />)}
         </div>
     )
 }

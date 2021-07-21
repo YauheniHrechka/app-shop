@@ -1,50 +1,64 @@
-.good {
-    border: 1px solid #fff;
-    border-radius: 15px;
-    width: 220px;
+.ant-card {
     margin: 5px;
-    background: #fff;
-    box-shadow: 0 0 10px #A9A9A9;
+    border-radius: 15px;
+    position: static;
 
-    .good__img img {
-        max-width: 100%;
-        max-height: 100%;
-        padding: 40px;
+    .ant-card-cover {
+        padding: 24px;
     }
 
-    .good__price {
-        margin: 5px 15px;
-        display: flex;
-        justify-content: space-between;
-
-        .good__price_text {
-            display: flex;
-            align-items: center;
-    
-            span {
-                font-weight: bold;
-                font-size: 20px;
-            }
-        }
-
-        .good__price_btn button {
-            width: 70px;
-            height: 30px;
-            border-radius: 10px;
-            border: none;
-            outline: none;
-            background:  #28a745;
-            color: #fff;
-            transition: .3s;
-    
-            &:hover {
-                cursor: pointer;
-                opacity: .7;
-            }
-        }
+    .ant-card-actions {
+        border-radius: 0 0 15px 15px;
     }
-
-    .good__description {
-        margin: 5px 15px;
-    }    
 }
+
+// .good {
+//     border: 1px solid #fff;
+//     border-radius: 15px;
+//     width: 220px;
+//     margin: 5px;
+//     background: #fff;
+//     box-shadow: 0 0 10px #A9A9A9;
+
+//     .good__img img {
+//         max-width: 100%;
+//         max-height: 100%;
+//         padding: 40px;
+//     }
+
+//     .good__price {
+//         margin: 5px 15px;
+//         display: flex;
+//         justify-content: space-between;
+
+//         .good__price_text {
+//             display: flex;
+//             align-items: center;
+    
+//             span {
+//                 font-weight: bold;
+//                 font-size: 20px;
+//             }
+//         }
+
+//         .good__price_btn button {
+//             width: 70px;
+//             height: 30px;
+//             border-radius: 10px;
+//             border: none;
+//             outline: none;
+//             background:  #28a745;
+//             color: #fff;
+//             transition: .3s;
+    
+//             &:hover {
+//                 cursor: pointer;
+//                 opacity: .7;
+//             }
+//         }
+//     }
+
+//     .good__description {
+//         margin: 5px 15px;
+//     }    
+// }
