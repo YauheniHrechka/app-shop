@@ -4,6 +4,7 @@ export { default as Navigation } from './Navigation';
 export { default as Content } from './Content';
 export { default as Login } from './Login';
 export { default as Registration } from './Registration';
+export { default as Result } from './Result';
 export { default as Goods } from './Goods';
 export { default as Good } from './Good';
 export { default as GoodsCart } from './GoodsCart';

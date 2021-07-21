@@ -5,7 +5,7 @@ const keys = require('../config/keys');
 
 module.exports.login = async (req, res) => {
     const { email, password } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     try {
         const candidate = await User.findOne({ email });
 
@@ -14,11 +14,13 @@ module.exports.login = async (req, res) => {
             if (result) {
 
                 const token = jwt.sign({
+                    userId: candidate._id,
                     email: candidate.email,
-                    userId: candidate._id
                 }, keys.jwt, { expiresIn: 60 * 60 });
 
                 res.status(200).json({
+                    id: candidate._id,
+                    email: candidate.email,
                     token: `Bearer ${token}`
                 });
             } else {

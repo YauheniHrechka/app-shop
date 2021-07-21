@@ -14,17 +14,17 @@ const { Header: AntHeader } = Layout;
 const menu = (
     <Menu>
         <Link to="/login">
-            <Menu.Item icon={<UserOutlined />}>
+            <Menu.Item key="1" icon={<UserOutlined />}>
                 {/* <a rel="noopener noreferrer"> */}
                 Sign in
                 {/* </a> */}
             </Menu.Item>
         </Link>
         <Link to="/registration">
-            <Menu.Item icon={<UserAddOutlined />}>
-                <a rel="noopener noreferrer">
-                    Registration
-                </a>
+            <Menu.Item key="2" icon={<UserAddOutlined />}>
+                {/* <a rel="noopener noreferrer"> */}
+                Registration
+                {/* </a> */}
             </Menu.Item>
         </Link>
     </Menu>

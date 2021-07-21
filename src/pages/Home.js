@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigation, Goods } from '../components';
+import { Goods } from '../components';
 
 const PageHome = () => {
 
