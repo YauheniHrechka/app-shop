@@ -67,7 +67,9 @@ const goodsCart = (state = initialState, action) => {
             }
 
         case 'MINUS_GOOD_CART':
-
+            console.log('state -> ', state);
+            console.log('action.payload -> ', action.payload);
+            console.log('state.goods -> ', state.goods);
             newGoods = {
                 ...state.goods,
                 [action.payload.good._id]: {
@@ -75,6 +77,8 @@ const goodsCart = (state = initialState, action) => {
                     goods: state.goods[action.payload.good._id].goods.slice(0, -1)
                 }
             }
+
+            console.log('newGoods -> ', newGoods);
 
             calcTotalGood(newGoods);
 

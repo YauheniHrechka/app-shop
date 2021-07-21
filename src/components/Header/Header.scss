@@ -13,6 +13,8 @@ header {
     }
 
     ul {
+        .ant-menu-item { color: #ffff !important; }
+
         .ant-menu-item-selected {
             color: #d580ff !important;
             background: #001529 !important;
@@ -31,6 +33,7 @@ header {
         float: right;
         display: flex;
         align-items: center;
+        cursor: pointer;
         
         .ant-badge {        
             font-size: 42px;
@@ -38,6 +41,18 @@ header {
         }
     }
 }
+
+.ant-dropdown-menu {
+    background: #001529;
+
+    .ant-dropdown-menu-item{ color: #ffff !important; }
+
+    .ant-dropdown-menu-item:hover {
+        color: #d580ff !important;
+        background: #001529 !important;
+    }
+}
+
 // header {
 //     padding: 0 7%;
 //     display: flex;

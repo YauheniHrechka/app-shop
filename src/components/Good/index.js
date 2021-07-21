@@ -1,7 +1,7 @@
 import React from 'react';
 import './Good.scss';
 
-import { addGoodCart } from '../../redux/actions/goodsCart';
+import { addGoodCart, minusGoodCart, deleteGoodCart } from '../../redux/actions/goodsCart';
 import { useSelector } from 'react-redux';
 import { Context } from '../../context/context';
 import { PlusCircleOutlined, MinusCircleOutlined, ShoppingCartOutlined } from '@ant-design/icons';
@@ -18,7 +18,16 @@ const Good = ({ _id, modelNumber, name, brand, url, price, good }) => {
         return goods.hasOwnProperty(_id) && goods[_id].checkbox ? goods[_id].totalCountGood : 0
     });
 
-    const onClickGood = () => dispatch(addGoodCart(good));
+    const onClickAddGood = () => dispatch(addGoodCart(good));
+
+    const onClickMinusGood = () => {
+        if (totalCountGood <= 0) {
+        } else if (totalCountGood === 1) {
+            dispatch(deleteGoodCart(good));
+        } else {
+            dispatch(minusGoodCart(good));
+        }
+    }
 
     return (
         <Card
@@ -31,8 +40,8 @@ const Good = ({ _id, modelNumber, name, brand, url, price, good }) => {
                         <ShoppingCartOutlined key="cart" />
                     </Badge>
                 </Link>,
-                <PlusCircleOutlined key="plus" onClick={onClickGood} />,
-                <MinusCircleOutlined key="minus" />
+                <PlusCircleOutlined key="plus" onClick={onClickAddGood} />,
+                <MinusCircleOutlined key="minus" onClick={onClickMinusGood} />
             ]}
         >
             <Meta

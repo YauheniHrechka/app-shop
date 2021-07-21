@@ -27,7 +27,6 @@ const GoodCart = ({ good: { modelNumber, name, brand, url, price }, good, totalC
         <Card
             hoverable
             extra={<>
-                {/* <input type="checkbox" onClick={onClickCheckbox} defaultChecked={checkbox} /> */}
                 {checkbox ?
                     <CheckCircleTwoTone onClick={onClickCheckbox} twoToneColor="#52c41a" /> :
                     <MehOutlined onClick={onClickCheckbox} />
@@ -40,8 +39,7 @@ const GoodCart = ({ good: { modelNumber, name, brand, url, price }, good, totalC
                 <Badge size="small" count={totalCount} style={{ backgroundColor: '#52c41a' }}>
                     <ShoppingCartOutlined key="cart" />
                 </Badge>,
-                <MinusCircleOutlined key="minus" onClick={onClickBtnMinus} />,
-                // <CloseCircleTwoTone key="delete" onClick={onClickDelete} />
+                <MinusCircleOutlined key="minus" onClick={onClickBtnMinus} />
             ]}
         >
             <Meta
