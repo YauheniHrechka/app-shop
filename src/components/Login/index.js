@@ -2,6 +2,7 @@ import React from 'react';
 import './Login.scss';
 
 import axios from 'axios';
+import { Button, Form, Input } from 'antd';
 
 const Login = () => {
 
@@ -12,24 +13,24 @@ const Login = () => {
         e.preventDefault();
         console.log('object => ', { email, password });
         axios.post('/api/auth/login', { email, password })
-            .then(data => console.log('data => ', data));
+            .then(res => console.log('data => ', res.data));
     }
 
     return (
         <div className="login__wrapper">
-            <form className="form">
-                <div>
-                    <label >E-mail:
-                        <input type="text" name="email" onInput={(e) => setEmail(e.target.value)} />
-                    </label>
-                </div>
-                <div>
-                    <label > Password:
-                        <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} />
-                    </label>
-                </div>
-                <button type="submit" onClick={onClick}>Login</button>
-            </form>
+            <Form labelCol={{ span: 7 }}>
+                <Form.Item name="email" label="E-mail" rules={[{ required: true }]} >
+                    <Input onChange={e => setEmail(e.target.value)} placeholder="E-mail" value={email} />
+                </Form.Item>
+
+                <Form.Item name="password" label="Password" rules={[{ required: true }]} >
+                    <Input onChange={e => setPassword(e.target.value)} type="password" placeholder="Password" value={password} />
+                </Form.Item>
+
+                <Form.Item wrapperCol={{ offset: 7 }}>
+                    <Button onClick={onClick} type="primary" htmlType="button">Enter</Button>
+                </Form.Item>
+            </Form>
         </div>
     )
 }

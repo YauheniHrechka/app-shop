@@ -6,10 +6,29 @@ import './Header.scss';
 
 import { useSelector } from 'react-redux';
 import { Navigation } from '../';
-import { Avatar, Badge, Layout } from 'antd';
-import { ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
+import { Avatar, Badge, Layout, Menu, Dropdown } from 'antd';
+import { ShoppingCartOutlined, UserOutlined, UserAddOutlined } from '@ant-design/icons';
 
 const { Header: AntHeader } = Layout;
+
+const menu = (
+    <Menu>
+        <Link to="/login">
+            <Menu.Item icon={<UserOutlined />}>
+                {/* <a rel="noopener noreferrer"> */}
+                Sign in
+                {/* </a> */}
+            </Menu.Item>
+        </Link>
+        <Link to="/registration">
+            <Menu.Item icon={<UserAddOutlined />}>
+                <a rel="noopener noreferrer">
+                    Registration
+                </a>
+            </Menu.Item>
+        </Link>
+    </Menu>
+);
 
 const Header = () => {
 
@@ -22,11 +41,13 @@ const Header = () => {
             </Link>
             <Navigation />
             <div>
-                <Link to="/login">
-                    <div className="login">
+                {/* <Link to="/login"> */}
+                <div className="login">
+                    <Dropdown overlay={menu}>
                         <Avatar style={{ backgroundColor: '#d580ff' }} size={48} icon={<UserOutlined />} />
-                    </div>
-                </Link>
+                    </Dropdown>
+                </div>
+                {/* </Link> */}
                 <Link to="/cart">
                     <div className="cart">
                         <Badge size="small" count={totalCount} style={{ backgroundColor: '#52c41a' }}>
