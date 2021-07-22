@@ -1,5 +1,6 @@
 const initialState = {
-    user: {}
+    user: {},
+    hasRegistration: false
 }
 
 const user = (state = initialState, action) => {

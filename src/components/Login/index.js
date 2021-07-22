@@ -3,7 +3,7 @@ import './Login.scss';
 
 import { useSelector } from 'react-redux';
 import { Context } from '../../context/context';
-import { fetchUser } from '../../redux/actions/user';
+import { fetchLoginUser } from '../../redux/actions/user';
 import { Result } from '../';
 import { Button, Form, Input } from 'antd';
 
@@ -17,13 +17,12 @@ const Login = () => {
     const [password, setPassword] = React.useState('');
 
     const onClick = (e) => {
-        dispatch(fetchUser({ email, password }));
+        console.log('login -> ', dispatch(fetchLoginUser({ email, password })));
     }
 
     return (
         <div className="login__wrapper">
             {Object.keys(user).length !== 0 ?
-                // <span>Zdarova</span> :
                 <Result {...user} /> :
                 <Form labelCol={{ span: 7 }}>
                     <Form.Item name="email" label="E-mail" rules={[{ required: true }]} >

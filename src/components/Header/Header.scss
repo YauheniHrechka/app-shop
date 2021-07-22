@@ -1,8 +1,11 @@
 header {
-    position: fixed;
-    width: 100%;
+    // position: fixed;
+    min-width: 985px;
+    max-width: 1145px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    background: #f0f2f5 !important;
 
     .logo {
         float: left;
@@ -10,20 +13,6 @@ header {
         height: 31px;
         margin: 16px 24px 16px 0;
         background: rgba(255, 255, 255, 0.3);
-    }
-
-    ul {
-        .ant-menu-item { color: #ffff !important; }
-
-        .ant-menu-item-selected {
-            color: #d580ff !important;
-            background: #001529 !important;
-        }
-
-        .ant-menu-item:hover {
-            color: #d580ff !important;
-            background: #001529 !important;
-        }
     }
 
     .cart,
@@ -51,6 +40,26 @@ header {
         color: #d580ff !important;
         background: #001529 !important;
     }
+}
+
+.ant-menu-overflow {
+    justify-content: center;
+
+    // .ant-menu-item { color: #ffff !important; }
+
+    // ul {
+        .ant-menu-item { color: #ffff !important; }
+
+        .ant-menu-item-selected {
+            // color: #d580ff !important;
+            background: #d580ff !important;
+        }
+
+        .ant-menu-item:hover {
+            // color: #d580ff !important;
+            background: #d580ff !important;
+        }
+    // }
 }
 
 // header {

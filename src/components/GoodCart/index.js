@@ -3,7 +3,7 @@ import './GoodCart.scss';
 
 import { clickCheckbox, addGoodCart, minusGoodCart, deleteGoodCart } from '../../redux/actions/goodsCart';
 import { Context } from '../../context/context';
-import { CheckCircleTwoTone, MehOutlined, CloseCircleTwoTone, PlusCircleOutlined, MinusCircleOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { CheckCircleTwoTone, QuestionCircleTwoTone, CloseCircleTwoTone, PlusCircleOutlined, MinusCircleOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { Badge, Card } from 'antd';
 
 const { Meta } = Card;
@@ -29,7 +29,7 @@ const GoodCart = ({ good: { modelNumber, name, brand, url, price }, good, totalC
             extra={<>
                 {checkbox ?
                     <CheckCircleTwoTone onClick={onClickCheckbox} twoToneColor="#52c41a" /> :
-                    <MehOutlined onClick={onClickCheckbox} />
+                    <QuestionCircleTwoTone onClick={onClickCheckbox} />
                 }
                 <CloseCircleTwoTone key="delete" twoToneColor="#f5222d" onClick={onClickDelete} />
             </>}

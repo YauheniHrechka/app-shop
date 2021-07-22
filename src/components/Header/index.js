@@ -23,7 +23,7 @@ const menu = (
         <Link to="/registration">
             <Menu.Item key="2" icon={<UserAddOutlined />}>
                 {/* <a rel="noopener noreferrer"> */}
-                Registration
+                Create Account
                 {/* </a> */}
             </Menu.Item>
         </Link>
@@ -35,30 +35,33 @@ const Header = () => {
     const { totalCount } = useSelector(({ goodsCart }) => goodsCart);
 
     return (
-        <AntHeader>
-            <Link to="/">
-                <div className="logo"></div>
-            </Link>
-            <Navigation />
-            <div>
-                {/* <Link to="/login"> */}
-                <div className="login">
-                    <Dropdown overlay={menu}>
-                        <Avatar style={{ backgroundColor: '#d580ff' }} size={48} icon={<UserOutlined />} />
-                    </Dropdown>
-                </div>
-                {/* </Link> */}
-                <Link to="/cart">
-                    <div className="cart">
-                        <Badge size="small" count={totalCount} style={{ backgroundColor: '#52c41a' }}>
-                            <ShoppingCartOutlined />
-                        </Badge>
-                        {/* <span>cart</span> */}
-                        {/* {totalCount > 0 && <span className="quantity">{totalCount}</span>} */}
-                    </div>
+        <>
+            <AntHeader>
+                <Link to="/">
+                    <div className="logo"></div>
                 </Link>
-            </div>
-        </AntHeader>
+                {/* <Navigation /> */}
+                <div>
+                    {/* <Link to="/login"> */}
+                    <div className="login">
+                        <Dropdown overlay={menu}>
+                            <Avatar style={{ backgroundColor: '#d580ff' }} size={48} icon={<UserOutlined />} />
+                        </Dropdown>
+                    </div>
+                    {/* </Link> */}
+                    <Link to="/cart">
+                        <div className="cart">
+                            <Badge size="small" count={totalCount} style={{ backgroundColor: '#52c41a' }}>
+                                <ShoppingCartOutlined />
+                            </Badge>
+                            {/* <span>cart</span> */}
+                            {/* {totalCount > 0 && <span className="quantity">{totalCount}</span>} */}
+                        </div>
+                    </Link>
+                </div>
+            </AntHeader>
+            <Navigation />
+        </>
         // <header>
         //     <Link to="/">
         //         <div className="header">

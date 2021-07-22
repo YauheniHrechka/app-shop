@@ -7,7 +7,7 @@ const { Footer: AntFooter } = Layout;
 const Footer = () => {
     return (
         <AntFooter>
-            <h1>Your footer</h1>
+            <span>Your footer</span>
         </AntFooter>
     )
 }
