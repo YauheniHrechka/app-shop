@@ -9,6 +9,7 @@ const routerAuth = require('./routers/auth');
 const routerCategories = require('./routers/category');
 const routerGoods = require('./routers/good');
 const routerCart = require('./routers/cart');
+const routerUpload = require('./routers/upload');
 const keys = require('./config/keys');
 const app = express();
 
@@ -27,9 +28,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use('/uploads', express.static('uploads'));
 app.use('/api/auth', routerAuth);
 app.use('/api/categories', routerCategories);
 app.use('/api/goods', routerGoods);
 app.use('/api/cart', routerCart);
+app.use('/api/upload', routerUpload);
 
 app.listen(3001, () => console.log("Server has been started"));

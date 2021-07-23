@@ -28,7 +28,7 @@ const App = () => {
       <Layout>
         <Header />
         <Content />
-        <Footer />
+        {/* <Footer /> */}
       </Layout>
       {/* <div className="App">
         <div className="header__wrap">

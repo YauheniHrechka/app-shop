@@ -5,7 +5,7 @@ const keys = require('../config/keys');
 
 module.exports.login = async (req, res) => {
     const { email, password } = req.body;
-    // console.log(req.body);
+
     try {
         const candidate = await User.findOne({ email });
 
@@ -21,7 +21,8 @@ module.exports.login = async (req, res) => {
                 res.status(200).json({
                     id: candidate._id,
                     email: candidate.email,
-                    token: `Bearer ${token}`
+                    token: `Bearer ${token}`,
+                    imageSrc: candidate.imageSrc
                 });
             } else {
                 res.status(401).json({
@@ -47,7 +48,8 @@ module.exports.registration = async (req, res) => {
             const salt = bcrypt.genSaltSync(10);
             const user = new User({
                 email,
-                password: bcrypt.hashSync(password, salt)
+                password: bcrypt.hashSync(password, salt),
+                imageSrc: req.file.path
             });
 
             try {

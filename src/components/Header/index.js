@@ -6,8 +6,8 @@ import './Header.scss';
 
 import { useSelector } from 'react-redux';
 import { Navigation } from '../';
-import { Avatar, Badge, Layout, Menu, Dropdown } from 'antd';
-import { ShoppingCartOutlined, UserOutlined, UserAddOutlined } from '@ant-design/icons';
+import { Avatar, Badge, Button, Input, Layout, Menu, Dropdown } from 'antd';
+import { SearchOutlined, ShoppingCartOutlined, UserOutlined, UserAddOutlined } from '@ant-design/icons';
 
 const { Header: AntHeader } = Layout;
 
@@ -36,29 +36,40 @@ const Header = () => {
 
     return (
         <>
-            <AntHeader>
+            <AntHeader style={{ background: '#f0f2f5', padding: '0 20px' }}>
                 <Link to="/">
                     <div className="logo"></div>
                 </Link>
-                {/* <Navigation /> */}
-                <div>
-                    {/* <Link to="/login"> */}
-                    <div className="login">
-                        <Dropdown overlay={menu}>
-                            <Avatar style={{ backgroundColor: '#d580ff' }} size={48} icon={<UserOutlined />} />
-                        </Dropdown>
-                    </div>
-                    {/* </Link> */}
+                <div className="search">
+                    <Input size="large" placeholder=" search" prefix={<SearchOutlined />} style={{ borderRadius: '40px' }} />
+                </div>
+                <div className="login">
+                    <Dropdown overlay={menu}>
+                        {/* <Avatar style={{ backgroundColor: '#d580ff' }} size={48} icon={<UserOutlined />} /> */}
+                        <Button shape="round" icon={<UserOutlined />} size="large">
+                            account
+                        </Button>
+                    </Dropdown>
+                </div>
+
+                <div className="cart">
                     <Link to="/cart">
-                        <div className="cart">
+                        <Button shape="round" size="large">
                             <Badge size="small" count={totalCount} style={{ backgroundColor: '#52c41a' }}>
                                 <ShoppingCartOutlined />
                             </Badge>
-                            {/* <span>cart</span> */}
-                            {/* {totalCount > 0 && <span className="quantity">{totalCount}</span>} */}
-                        </div>
+                            <span className="btn-title">cart</span>
+                        </Button>
+
+                        {/*        <Badge size="small" count={totalCount} style={{ backgroundColor: '#52c41a' }}>
+                                <ShoppingCartOutlined />
+                            </Badge> */}
+                        {/* <span>cart</span> */}
+                        {/* {totalCount > 0 && <span className="quantity">{totalCount}</span>} */}
                     </Link>
                 </div>
+
+                {/* </div> */}
             </AntHeader>
             <Navigation />
         </>

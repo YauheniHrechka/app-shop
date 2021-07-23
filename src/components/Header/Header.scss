@@ -1,32 +1,47 @@
-header {
+.ant-layout-header {
     // position: fixed;
-    min-width: 985px;
-    max-width: 1145px;
+    min-width: 941px;
+    max-width: 1040px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
-    background: #f0f2f5 !important;
+    justify-content: center;
+    // justify-content: space-between;
+    // background: #f0f2f5 !important;
 
     .logo {
-        float: left;
+        // float: left;
+        flex: none;
         width: 120px;
         height: 31px;
         margin: 16px 24px 16px 0;
         background: rgba(255, 255, 255, 0.3);
     }
 
+    .search {
+        // position: relative;
+        // width: 100%;
+        flex: 2;
+    }
+
+    .search,
     .cart,
     .login {
-        width: 64px;
-        height: 100%;
-        float: right;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
+        position: relative;
+        margin: 0 5px;
+        // height: 100%;
+        // float: right;
+        // display: flex;
+        // align-items: center;
+        // cursor: pointer;
         
-        .ant-badge {        
-            font-size: 42px;
-            color: #d580ff;
+        // .ant-badge {        
+            // font-size: 42px;
+            // color: #d580ff;
+            // margin-left: 8px;
+        // }
+
+        .ant-btn .btn-title {
+            margin-left: 8px;
         }
     }
 }

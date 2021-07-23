@@ -11,7 +11,7 @@ const Login = () => {
 
     const dispatch = React.useContext(Context);
     const user = useSelector(({ user: { user } }) => user);
-    // console.log('user -> ', user);
+    console.log('login user -> ', user);
 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');

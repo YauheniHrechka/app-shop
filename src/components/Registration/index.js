@@ -1,7 +1,7 @@
 import React from 'react';
 import './Registration.scss';
 
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { Context } from '../../context/context';
 import { fetchRegisterUser } from '../../redux/actions/user';
 // import { Result } from '../';
@@ -11,28 +11,35 @@ import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 const Registration = () => {
 
     const dispatch = React.useContext(Context);
-    const user = useSelector(({ user: { user } }) => user);
+    // const user = useSelector(({ user: { user } }) => user);
     // console.log('user -> ', user);
 
     const [loading, setLoading] = React.useState(false);
     const [imageUrl, setImageUrl] = React.useState('');
+    const [imgFile, setImgFile] = React.useState(null);
+
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
     const onClick = (e) => {
         e.preventDefault();
-        dispatch(fetchRegisterUser({ email, password }));
+
+        const fd = new FormData();
+        fd.set('email', email);
+        fd.set('password', password);
+        fd.set('file', imgFile, imgFile.name);
+        dispatch(fetchRegisterUser(fd));
     }
 
     const getBase64 = (img, callback) => {
-        console.log('getBase64');
+
         const reader = new FileReader();
+        console.log('reader.result', reader.result);
         reader.addEventListener('load', () => callback(reader.result));
         reader.readAsDataURL(img);
     }
 
     const beforeUpload = file => {
-
         const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
         if (!isJpgOrPng) {
             message.error('You can only upload JPG/PNG file!');
@@ -45,33 +52,23 @@ const Registration = () => {
         return isJpgOrPng && isLt2M;
     }
 
-    const handleChange = info => {
-        console.log('info', info);
-        if (info.file.status === 'uploading') {
-            console.log('uploading');
+    const handleChange = ({ file: { status, originFileObj } }) => {
+        if (status === 'uploading') {
             setLoading(true);
-            return;
-        }
-        console.log('info.file.status', info.file.status);
-        if (info.file.status === 'done') {
-            console.log('done');
+
+        } else if (status === 'done') {
             // Get this url from response in real world.
-            getBase64(info.file.originFileObj, imageUrl => {
+            setImgFile(originFileObj);
+
+            getBase64(originFileObj, imageUrl => {
                 setImageUrl(imageUrl);
                 setLoading(true);
             });
         }
     };
 
-    const uploadButton = (
-        <div>
-            {loading ? <LoadingOutlined /> : <PlusOutlined />}
-            <div style={{ marginTop: 8 }}>Upload</div>
-        </div>
-    )
-
     return (
-        <div className="login__wrapper">
+        <div className="registration__wrapper">
             {/* {Object.keys(user).length !== 0 ?
                 <Result {...user} /> : */}
             <Form className="login-form" labelCol={{ span: 7 }}>
@@ -85,11 +82,17 @@ const Registration = () => {
                         listType="picture-card"
                         showUploadList={false}
                         accept=".jpeg, .png"
-                        // action="/test.json"
+                        maxCount={1}
+                        action={"http://localhost:3001/api/upload/fake"}
                         beforeUpload={beforeUpload}
                         onChange={handleChange}
                     >
-                        {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+                        {imageUrl ?
+                            <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> :
+                            <div>
+                                {loading ? <LoadingOutlined /> : <PlusOutlined />}
+                                <div style={{ marginTop: 8 }}>Upload</div>
+                            </div>}
                     </Upload>
                 </Form.Item>
 
@@ -105,7 +108,6 @@ const Registration = () => {
                     <Button onClick={onClick} type="primary" htmlType="submit">Register</Button>
                 </Form.Item>
             </Form>
-            {/* } */}
         </div>
     )
 }

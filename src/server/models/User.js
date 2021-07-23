@@ -9,6 +9,9 @@ const schemaUser = new Schema({
     password: {
         type: String,
         required: true
+    },
+    imageSrc: {
+        type: String
     }
 })
 
